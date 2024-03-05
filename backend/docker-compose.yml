@@ -1,0 +1,35 @@
+services:
+  db:
+    container_name: practice_container
+    image: postgres
+    environment:
+      POSTGRES_USER: practiceUser
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5632:5432"
+    networks:
+      - db
+    restart: unless-stopped
+
+  amigoscode-api:
+    container_name: practice-api
+    image: acesam/practice-one-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/customer
+    ports:
+      - "8088:8080"
+    networks:
+      - db
+    depends_on:
+      - db
+    restart: unless-stopped
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:

@@ -1,0 +1,23 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "practice-api",
+      "image": "acesam/practice-one-api:latest",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ],
+      "environment": [
+        {
+          "name": "SPRING_DATASOURCE_URL",
+          "value": "jdbc:postgresql://awseb-e-mrmmgee2es-stack-awsebrdsdatabase-7a7bhyqlncvd.cloyqmcmis9t.eu-central-1.rds.amazonaws.com:5432/customer"
+        }
+      ]
+    }
+  ]
+}

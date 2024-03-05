@@ -1,0 +1,24 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5632/customer
+    username: practiceUser
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: validate # from none (schema manager case) to validate in case of jdbc template
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show_sql: true
+
+
+  main:
+    web-application-type: servlet
+
+
