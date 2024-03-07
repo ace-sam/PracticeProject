@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "practice-api",
-      "image": "acesam/practice-one-api:latest",
+      "image": "acesam/practice-one-api:07.03.2024.00.50.51",
       "essential": true,
       "memory": 512,
       "portMappings": [
